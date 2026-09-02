@@ -1,0 +1,2 @@
+scope_slug,snapshot_day,plan_type,seats_total,seats_added_this_cycle,seats_pending_cancellation,seats_pending_invitation,seats_active_this_cycle,seats_inactive_this_cycle
+acme-corp,2025-02-10,Business,20,2,1,0,16,4

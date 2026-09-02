@@ -1,0 +1,75 @@
+-- Core adoption and quality measures
+Suggestions Count = SUM(FactCompletionByLanguageEditor[suggestions_count])
+
+Acceptances Count = SUM(FactCompletionByLanguageEditor[acceptances_count])
+
+Lines Suggested = SUM(FactCompletionByLanguageEditor[lines_suggested])
+
+Lines Accepted = SUM(FactCompletionByLanguageEditor[lines_accepted])
+
+Acceptance Rate % = DIVIDE([Acceptances Count], [Suggestions Count], 0)
+
+Line Acceptance Rate % = DIVIDE([Lines Accepted], [Lines Suggested], 0)
+
+Active Users (Completion) = SUM(FactCompletionByLanguageEditor[engaged_users])
+
+Chat Turns = SUM(FactChatByEditorModel[chat_turns])
+
+Chat Acceptances = SUM(FactChatByEditorModel[chat_copy_events]) + SUM(FactChatByEditorModel[chat_insertion_events])
+
+Chat Acceptance Rate % = DIVIDE([Chat Acceptances], [Chat Turns], 0)
+
+Active Users (Chat) = SUM(FactChatByEditorModel[chat_engaged_users])
+
+PR Summaries Created = SUM(FactPRReviewsByRepo[pr_summaries_created])
+
+Dotcom Chat Turns = SUM(FactDotcomChatByModel[chat_turns])
+
+-- Seat utilization
+Assigned Seats = DISTINCTCOUNT(FactSeatAssignmentsDaily[assignee_login])
+
+Never Active Seats =
+CALCULATE(
+    DISTINCTCOUNT(FactSeatAssignmentsDaily[assignee_login]),
+    ISBLANK(FactSeatAssignmentsDaily[last_activity_at])
+)
+
+Seat Activation Rate % = DIVIDE([Assigned Seats] - [Never Active Seats], [Assigned Seats], 0)
+
+Inactive Seats (Billing Cycle) = SUM(FactSeatSummaryDaily[seats_inactive_this_cycle])
+
+Active Seats (Billing Cycle) = SUM(FactSeatSummaryDaily[seats_active_this_cycle])
+
+-- User metrics (28-day API snapshots)
+User Metrics Users = DISTINCTCOUNT(FactUserMetricsDaily[user_login])
+
+User Metrics Suggestions = SUM(FactUserMetricsDaily[code_generation_activity_count])
+
+User Metrics Acceptances = SUM(FactUserMetricsDaily[code_acceptance_activity_count])
+
+User Metrics Acceptance Rate % = DIVIDE([User Metrics Acceptances], [User Metrics Suggestions], 0)
+
+User Metrics Active Days =
+DISTINCTCOUNT(FactUserMetricsDaily[day])
+
+-- ROI (set assumptions with What-if parameters if desired)
+Assumed Hours Saved Per Dev Per Day = 0.4
+
+Assumed Developer Hourly Cost = 48
+
+Assumed Copilot Monthly Cost Per Seat = 19
+
+Estimated Daily Productivity Gain =
+[Assigned Seats] * [Assumed Hours Saved Per Dev Per Day] * [Assumed Developer Hourly Cost]
+
+Estimated Annual Productivity Gain =
+[Estimated Daily Productivity Gain] * 260
+
+Estimated Annual Copilot Cost =
+[Assigned Seats] * [Assumed Copilot Monthly Cost Per Seat] * 12
+
+Estimated Net Annual Benefit =
+[Estimated Annual Productivity Gain] - [Estimated Annual Copilot Cost]
+
+Estimated ROI % =
+DIVIDE([Estimated Net Annual Benefit], [Estimated Annual Copilot Cost], 0)

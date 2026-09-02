@@ -1,0 +1,11 @@
+scope_slug,team_slug,day,model,chat_turns,engaged_users
+acme-corp,backend-team,2025-02-01,gpt-4,28,8
+acme-corp,backend-team,2025-02-02,gpt-4,34,9
+acme-corp,frontend-team,2025-02-01,gpt-4,42,10
+acme-corp,frontend-team,2025-02-02,gpt-4,52,12
+acme-corp,devops-team,2025-02-01,gpt-4,15,4
+acme-corp,devops-team,2025-02-02,gpt-4,18,5
+acme-corp,data-science,2025-02-01,gpt-4,35,8
+acme-corp,data-science,2025-02-02,gpt-4,42,9
+acme-corp,mobile-team,2025-02-01,gpt-4,22,6
+acme-corp,mobile-team,2025-02-02,gpt-4,28,7

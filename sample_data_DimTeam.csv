@@ -1,0 +1,6 @@
+team_id,team_slug,team_name,team_description,scope_slug
+1,backend-team,Backend Team,Core backend services and APIs,acme-corp
+2,frontend-team,Frontend Team,React and web UI development,acme-corp
+3,devops-team,DevOps Team,Infrastructure and deployment,acme-corp
+4,data-science,Data Science,ML and analytics platform,acme-corp
+5,mobile-team,Mobile Team,iOS and Android development,acme-corp

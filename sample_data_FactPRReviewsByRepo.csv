@@ -1,0 +1,17 @@
+scope_slug,team_slug,day,repository,model,pr_summaries_created
+acme-corp,backend-team,2025-02-01,api-server,gpt-4,8
+acme-corp,backend-team,2025-02-01,database-lib,gpt-4,5
+acme-corp,backend-team,2025-02-02,api-server,gpt-4,10
+acme-corp,backend-team,2025-02-02,database-lib,gpt-4,7
+acme-corp,frontend-team,2025-02-01,web-app,gpt-4,12
+acme-corp,frontend-team,2025-02-01,component-lib,gpt-4,8
+acme-corp,frontend-team,2025-02-02,web-app,gpt-4,15
+acme-corp,frontend-team,2025-02-02,component-lib,gpt-4,10
+acme-corp,devops-team,2025-02-01,infrastructure,gpt-4,4
+acme-corp,devops-team,2025-02-02,infrastructure,gpt-4,5
+acme-corp,data-science,2025-02-01,ml-models,gpt-4,6
+acme-corp,data-science,2025-02-02,ml-models,gpt-4,8
+acme-corp,mobile-team,2025-02-01,ios-app,gpt-4,7
+acme-corp,mobile-team,2025-02-01,android-app,gpt-4,5
+acme-corp,mobile-team,2025-02-02,ios-app,gpt-4,9
+acme-corp,mobile-team,2025-02-02,android-app,gpt-4,6
