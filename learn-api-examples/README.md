@@ -7,7 +7,7 @@ Small TypeScript client for the Microsoft Learn Platform API catalog, following 
 - Node.js 18 or later
 - Azure CLI signed in with an identity that can access the Learn Platform API
 
-## Set up:
+## Set up::
 
 From this folder, install the dependencies and sign in if needed1:
 
