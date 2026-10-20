@@ -1,0 +1,9 @@
+{
+  "name": "learn-api-examples",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Examples for the Microsoft Learn Platform API catalog",
+  "scripts": {
+    "start": "tsx examples.ts"
+  }
+}

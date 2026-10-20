@@ -29,6 +29,7 @@ The dashboard helps answer questions such as:
 - `QUICK_MIGRATION_REFERENCE.md` — quick reference for migrating from sample data to live API data
 - `ROI_DASHBOARD.md` — summary of ROI logic and dashboard interpretation
 - `SAMPLE_DATA_GUIDE.md` — sample dataset reference and expected outputs
+- `learn-api-examples/` — standalone TypeScript examples for the Microsoft Learn Platform API catalog
 - `sample_data_*.csv` — sample data tables used for local testing and demo scenarios
 
 ## Quick start
