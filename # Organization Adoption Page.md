@@ -59,10 +59,10 @@ $$
 
 ### Active Users — Completion
 
-The number of reported users who engaged with Copilot code completion.
-These measures are defined in [copilot_roi_powerbi_measures.dax](copilot_roi_powerbi_measures.dax#L1-L15).
+The sum of `engaged_users` values in the completion dataset, as defined by
+`Active Users (Completion)` in [copilot_roi_powerbi_measures.dax](copilot_roi_powerbi_measures.dax#L1-L15).
 
-> **Important:** This measure sums engagement across the available dimensions. When multiple dates, teams, languages, or editors are selected, the same developer may be represented more than once. It should not automatically be interpreted as a distinct organization-wide user count.
+> **Important:** The completion data is reported by date, team, editor, model, and language. Summing `engaged_users` across those rows can count the same developer more than once, so this measure is an engagement total—not a distinct organization-wide user count.
 
 ---
 
@@ -155,6 +155,7 @@ Display the following measures as cards:
 - Suggestions Count
 - Acceptances Count
 - Acceptance Rate
+- Lines Suggested
 - Lines Accepted
 - Line Acceptance Rate
 - Active Users — Completion
@@ -190,7 +191,7 @@ The date and team relationships required for filtering are documented in [PBIX_S
 | Suggestions and acceptances are increasing | Copilot adoption is growing |
 | Acceptance rate is high or improving | Suggestions are relevant and useful |
 | Suggestions increase while acceptance rate decreases | Usage is growing, but suggestion quality or developer fit may require investigation |
-| Active-user engagement is low | Adoption may be concentrated among a small group of developers |
+| The active-user total is low or changes unexpectedly | Check the selected breakdown and compare with a distinct-user measure; this completion total is not a unique-user count |
 | Line acceptance rate is high | Developers are retaining substantial portions of Copilot-generated code |
 | Adoption differs significantly by team | Some teams may require additional training or enablement |
 | Adoption differs by language or editor | Copilot may be more effective in particular development environments |
@@ -199,14 +200,17 @@ The date and team relationships required for filtering are documented in [PBIX_S
 
 ## Sample Data Expectations
 
-With the supplied sample data, the Organization Adoption page should show approximately:
+With the current `sample_data_FactCompletionByLanguageEditor.csv` sample data, the Organization Adoption page should show:
 
-- **Total suggestions:** 8,500
-- **Total acceptances:** 6,100
-- **Acceptance rate:** 71%
-- **Active-user observations:** 43
+- **Total suggestions:** 6,946
+- **Total acceptances:** 4,962
+- **Acceptance rate:** 71.4%
+- **Lines suggested:** 24,097
+- **Lines accepted:** 17,208
+- **Line acceptance rate:** 71.4%
+- **Active-user observations:** 177, summed across completion-data rows
 
-The active-user value includes possible overlap between teams and reporting dates.
+The sample covers February 1–2, 2025, across five teams. The active-user value also includes overlap across dates, teams, editors, models, and languages; it is not a distinct-user count.
 
 ---
 
